@@ -8,7 +8,7 @@
 """"""""""""""""""""""""""""""""""""""""
 " General configurations
 
-se hls is nowrap mouse=a ts=2 nu rnu
+se hls is nowrap mouse=a ts=2 nu rnu cul cuc
 se guifont=Hermit:h17 nuw=5 cindent sw=2 sr
 se et "vim-indent set" softtabstop=2 autoindent autochdir ruler 
 se ls=2 ch=2 fdm=syntax cc=70 nofen
@@ -44,7 +44,7 @@ nnoremap <leader>h <C-w>h
 nnoremap <leader>on :only<CR>
 nnoremap <leader>k <C-w>k
 nnoremap <leader>j <C-w>j
-nnoremap <Leader>hl :set cursorline!<CR> guibg=#771c1c
+nnoremap <Leader>c :set cursorline!<CR> guibg=#771c1c
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
 nnoremap <leader>< viw<esc>a><esc>'<i<<esc>lw

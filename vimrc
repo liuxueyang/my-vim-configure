@@ -8,10 +8,10 @@
 """"""""""""""""""""""""""""""""""""""""
 " General configurations
 
-se nu hlsearch incsearch nowrap mouse=a ts=2 
-se guifont=Hermit:h17 numberwidth=5 cindent sw=2
+se hls is nowrap mouse=a ts=2 nu rnu
+se guifont=Hermit:h17 nuw=5 cindent sw=2 sr
 se et "vim-indent set" softtabstop=2 autoindent autochdir ruler 
-se laststatus=2 cmdheight=2 foldmethod=syntax cc=70 nofoldenable
+se ls=2 ch=2 fdm=syntax cc=70 nofen
 syntax on
 syntax enable
 filetype plugin indent on
@@ -19,19 +19,18 @@ match ErrorMsg /\%>70v.\+/
 
 " some hotkeys configuration
 let mapleader=","
-nmap <leader>ay ggVG"+y<c-o><c-o>
-nmap <leader>q :q<cr>
-nmap <leader>fq :q!<cr>
-nmap <leader>xa :xa<cr>
-nmap <leader>w :w<cr>
-nmap <leader>e :e 
-nmap <leader>s :sp<cr>
-nmap <leader>v :vs<cr>
-
-noremap <space> ve
 
 vnoremap <leader>y "+y
 
+nnoremap <leader>ay ggVG"+y<c-o><c-o>
+nnoremap <leader>q :q<cr>
+nnoremap <leader>fq :q!<cr>
+nnoremap <leader>xa :xa<cr>
+nnoremap <leader>w :w<cr>
+nnoremap <leader>e :e 
+nnoremap <leader>s :sp<cr>
+nnoremap <leader>v :vs<cr>
+nnoremap <space> ve
 nnoremap <leader>p "+p
 nnoremap <leader>ev :vs $MYVIMRC<cr>
 nnoremap <leader>pv :sp $MYVIMRC<cr>
@@ -59,8 +58,6 @@ inoremap { {}<esc>i
 inoremap } <c-r>=ClosePair('}')<cr>
 inoremap [ []<esc>i
 inoremap ] <c-r>=ClosePair(']')<cr> 
-
-imap <S-CR> <CR><CR>end<Esc>-cc
 
 function! ClosePair(char)
 	if getline('.')[col('.') - 1] == a:char

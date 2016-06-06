@@ -19,7 +19,6 @@ match ErrorMsg /\%>70v.\+/
 
 " some hotkeys configuration
 let mapleader=","
-nmap <leader>p "+p
 nmap <leader>ay ggVG"+y<c-o><c-o>
 nmap <leader>q :q<cr>
 nmap <leader>fq :q!<cr>
@@ -33,6 +32,7 @@ noremap <space> ve
 
 vnoremap <leader>y "+y
 
+nnoremap <leader>p "+p
 nnoremap <leader>ev :vs $MYVIMRC<cr>
 nnoremap <leader>pv :sp $MYVIMRC<cr>
 nnoremap <leader>egv :vs $MYGVIMRC<cr>
@@ -68,6 +68,12 @@ function! ClosePair(char)
 	else
 		return a:char
 endf
+
+set statusline=%F%m%r%h%w\ 😃\ [FORMAT=%{&ff}]\ 😄\
+      \ [TYPE=%Y]\ 😟\
+      \ [ASCII=\%03.3b]\ 😮\ [HEX=\%02.2B]\ 😱\
+      \ [POS=%04l,%04v]\ 😭\
+      \ [%p%%]\ 😂\ [LEN=%L]\ 😎
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""
@@ -176,7 +182,9 @@ let g:C_ExeExtension = '.exe'
 let g:C_ObjExtension = '.exe'
 
 " # 12 YouCompleteMe
-let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf =
+      \'~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/
+      \.ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 

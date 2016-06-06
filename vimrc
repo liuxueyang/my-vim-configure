@@ -21,6 +21,8 @@ match ErrorMsg /\%>70v.\+/
 let mapleader=","
 
 vnoremap <leader>y "+y
+vnoremap <leader>" <esc>`<i"<esc>`>a"<esc>
+vnoremap jk <esc>
 
 nnoremap <leader>ay ggVG"+y<c-o><c-o>
 nnoremap <leader>q :q<cr>
@@ -49,8 +51,18 @@ nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
 nnoremap <leader>< viw<esc>a><esc>'<i<<esc>lw
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+nnoremap <leader>r :so %<cr>
+nnoremap <leader>_ ddp
+nnoremap <leader>- kddpk
+nnoremap <leader><c-u> viwUe
+nnoremap <leader><c-a>l viw~e
 
-inoremap <c-d> <esc>ddi
+inoremap <leader><c-d> <esc>dd$a
+inoremap <leader><c-u> <esc>viwUwa
+inoremap jk <esc>
+" disable old keys to learn the new map
+inoremap <c-[> <nop>
+inoremap <esc> <nop>
 inoremap <c-u> <esc>veU
 inoremap ( ()<esc>i
 inoremap ) <c-r>=ClosePair(')')<cr>
@@ -58,6 +70,11 @@ inoremap { {}<esc>i
 inoremap } <c-r>=ClosePair('}')<cr>
 inoremap [ []<esc>i
 inoremap ] <c-r>=ClosePair(']')<cr> 
+inoremap <c-d> <esc>ddi
+
+iabbrev @@ Blog: liuxueyang.github.io
+iabbrev ccopy Copright 2016 Sabastian, all rights reserved.
+iabbrev ssig -- <cr>Sabastian<cr>liuxueyang457@gmail.com
 
 function! ClosePair(char)
 	if getline('.')[col('.') - 1] == a:char

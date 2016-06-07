@@ -17,6 +17,16 @@ syntax enable
 filetype plugin indent on
 match ErrorMsg /\%>70v.\+/
 
+let localleader="\\"
+
+autocmd FileType javascript nnoremap <buffer>
+      \ <localleader>c I//<esc>
+autocmd FileType python nnoremap <buffer>
+      \ <localleader>c I#<esc>
+autocmd FileType vim nnoremap <buffer>
+      \ <localleader>c I"<esc>
+autocmd BufRead *.txt setl nu wrap
+
 " some hotkeys configuration
 let mapleader=","
 
@@ -56,6 +66,7 @@ nnoremap <leader>_ ddp
 nnoremap <leader>- kddpk
 nnoremap <leader><c-u> viwUe
 nnoremap <leader><c-a>l viw~e
+nnoremap <leader>n :bn<cr>
 
 inoremap <leader><c-d> <esc>dd$a
 inoremap <leader><c-u> <esc>viwUwa
@@ -165,7 +176,7 @@ nnoremap <c-t> :NERDTree<cr>
 
 " # 2 molokai
 let g:molokai_original = 1
-"color molokai
+" color molokai
 
 " # 3 vim-emoji
 set completefunc=emoji#complete
@@ -180,14 +191,14 @@ let g:gitgutter_sign_modified_removed = emoji#for('collision')
 
 " # 5 seoul256 color theme
 " Unified color scheme (default: dark)
-"colo seoul256
+colo seoul256
 
 " Light color scheme
-colo seoul256-light
+" colo seoul256-light
 
 " Switch
-"set background=dark
-set background=light
+set background=dark
+" set background=light
 
 " # 7 c.vim
 let g:C_CFlags='--std=c++1y -Wall -g'

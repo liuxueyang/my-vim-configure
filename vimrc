@@ -55,7 +55,10 @@ vnoremap <leader>y "+y
 vnoremap <leader>" <esc>`<i"<esc>`>a"<esc>
 vnoremap jk <esc>
 
-nnoremap <leader>ay ggVG"+y<c-o><c-o>
+onoremap p i(
+onoremap b /return<cr>
+
+nnoremap <localleader>ay ggVG"+y<c-o><c-o>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>fq :q!<cr>
 nnoremap <leader>xa :xa<cr>
@@ -64,7 +67,7 @@ nnoremap <leader>e :e
 nnoremap <leader>s :sp<cr>
 nnoremap <leader>v :vs<cr>
 nnoremap <space> ve
-nnoremap <leader>p "+p
+nnoremap <localleader>p "+p
 nnoremap <leader>ev :vs $MYVIMRC<cr>
 nnoremap <leader>pv :sp $MYVIMRC<cr>
 nnoremap <leader>egv :vs $MYGVIMRC<cr>
@@ -87,8 +90,8 @@ nnoremap <leader>_ ddp
 nnoremap <leader>- kddpk
 nnoremap <leader><c-u> viwUe
 nnoremap <leader><c-a>l viw~e
-nnoremap <localleader>n :bn<cr>
-nnoremap <localleader>p :bp<cr>
+nnoremap <leader>n :bn<cr>
+nnoremap <leader>p :bp<cr>
 
 inoremap <leader><c-d> <esc>dd$a
 inoremap <leader><c-u> <esc>viwUwa

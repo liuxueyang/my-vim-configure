@@ -178,7 +178,8 @@ Plug 'junegunn/vim-peekaboo'
 " manually installed and updated
 Plug '~/.vim/plugged/vim-powerline'
 
-" # 16 vim-markdown-preview
+" # 16 vim-instant-markdown
+" manually installed and updated
 Plug '~/.vim/plugged/vim-markdown-preview'
 
 call plug#end()
@@ -218,7 +219,9 @@ set background=dark
 
 " # 7 c.vim
 let g:C_CFlags='--std=c++1y -Wall -g'
-let g:C_CplusCompiler='/usr/local/bin/g++-5'
+if has('mac')
+  let g:C_CplusCompiler='/usr/local/bin/g++-5'
+endif
 let g:C_ExeExtension = '.exe'
 let g:C_ObjExtension = '.exe'
 
@@ -252,11 +255,8 @@ let g:Powerline_symbols = 'fancy'
 " `~/.vim/plugged/` directory:
 " git submodule add https://github.com/Lokaltog/vim-powerline
 
-" # 16 vim-markdown-preview
-"let vim_markdown_preview_toggle=2
-let vim_markdown_preview_browser='firefox'
-"let vim_markdown_preview_temp_file=1
-"let vim_markdown_preview_hotkey='<C-m>'
+" # 16 vim-instant-markdown
+let g:instant_markdown_slow = 1
 
 """"""""""""""""""""""""""""""""""""""""
 

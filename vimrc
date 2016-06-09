@@ -11,7 +11,7 @@
 se hls is nowrap mouse=a ts=2 nu rnu cul cuc
 se nuw=5 cindent sw=2 sr
 se et "vim-indent set" softtabstop=2 autoindent autochdir ruler 
-se ls=2 ch=2 fdm=syntax cc=70 nofen
+se ls=2 ch=2 fdm=manual cc=70 nofen
 " set guifont on Mac OS X, Linux and Windows
 if has('mac')
   se gfn=Monaco:h19
@@ -28,13 +28,25 @@ match ErrorMsg /\%>70v.\+/
 
 let localleader="\\"
 
-autocmd FileType javascript nnoremap <buffer>
-      \ <localleader>c I//<esc>
-autocmd FileType python nnoremap <buffer>
-      \ <localleader>c I#<esc>
-autocmd FileType vim nnoremap <buffer>
-      \ <localleader>c I"<esc>
-autocmd BufRead *.txt setl nu wrap
+augroup comment
+  autocmd!
+  autocmd FileType javascript nnoremap <buffer>
+        \ <localleader>c I//<esc>
+  autocmd FileType python nnoremap <buffer>
+        \ <localleader>c I#<esc>
+  autocmd FileType vim nnoremap <buffer>
+        \ <localleader>c I"<esc>
+augroup END
+
+augroup others
+  autocmd!
+  autocmd BufRead *.txt setl nu wrap
+augroup END
+
+augroup filetype_html
+  autocmd!
+  autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
+augroup END
 
 " some hotkeys configuration
 let mapleader=","
@@ -75,7 +87,8 @@ nnoremap <leader>_ ddp
 nnoremap <leader>- kddpk
 nnoremap <leader><c-u> viwUe
 nnoremap <leader><c-a>l viw~e
-nnoremap <leader>n :bn<cr>
+nnoremap <localleader>n :bn<cr>
+nnoremap <localleader>p :bp<cr>
 
 inoremap <leader><c-d> <esc>dd$a
 inoremap <leader><c-u> <esc>viwUwa

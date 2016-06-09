@@ -9,9 +9,18 @@
 " General configurations
 
 se hls is nowrap mouse=a ts=2 nu rnu cul cuc
-se guifont=Hermit:h17 nuw=5 cindent sw=2 sr
+se nuw=5 cindent sw=2 sr
 se et "vim-indent set" softtabstop=2 autoindent autochdir ruler 
 se ls=2 ch=2 fdm=syntax cc=70 nofen
+" set guifont on Mac OS X, Linux and Windows
+if has('mac')
+  se gfn=Monaco:h19
+else
+  se gfn=Hermit\ 13
+endif
+"remove toolbar, menu"
+se go-=T go-=m gcr=a:block-blinkon0
+
 syntax on
 syntax enable
 filetype plugin indent on
@@ -94,12 +103,12 @@ function! ClosePair(char)
 		return a:char
 endf
 
-set statusline=%F%m%r%h%w\ 😃\ [FORMAT=%{&ff}]\ 😄\
-      \ [TYPE=%Y]\ 😟\
-      \ [ASCII=\%03.3b]\ 😮\ [HEX=\%02.2B]\ 😱\
-      \ [POS=%04l,%04v]\ 😭\
-      \ [%p%%]\ 😂\ [LEN=%L]\ 😎
-""""""""""""""""""""""""""""""""""""""""
+"set statusline=%F%m%r%h%w\ 😃\ [FORMAT=%{&ff}]\ 😄\
+"      \ [TYPE=%Y]\ 😟\
+"      \ [ASCII=\%03.3b]\ 😮\ [HEX=\%02.2B]\ 😱\
+"      \ [POS=%04l,%04v]\ 😭\
+"      \ [%p%%]\ 😂\ [LEN=%L]\ 😎
+"""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""
 " use vim-plug to manage Vim plugins
@@ -165,6 +174,13 @@ Plug 'junegunn/vim-easy-align'
 " # 14 vim-peekaboo
 Plug 'junegunn/vim-peekaboo'
 
+" # 15 vim-powerline
+" manually installed and updated
+Plug '~/.vim/plugged/vim-powerline'
+
+" # 16 vim-markdown-preview
+Plug '~/.vim/plugged/vim-markdown-preview'
+
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""
 
@@ -229,6 +245,18 @@ let g:peekaboo_delay = 750
 
 " Compact display; do not display the names of the register groups
 let g:peekaboo_compact = 1
+
+" # 15 vim-powerline
+let g:Powerline_symbols = 'fancy'
+" If `PlugInstall` failed, just run the following command in 
+" `~/.vim/plugged/` directory:
+" git submodule add https://github.com/Lokaltog/vim-powerline
+
+" # 16 vim-markdown-preview
+"let vim_markdown_preview_toggle=2
+let vim_markdown_preview_browser='firefox'
+"let vim_markdown_preview_temp_file=1
+"let vim_markdown_preview_hotkey='<C-m>'
 
 """"""""""""""""""""""""""""""""""""""""
 

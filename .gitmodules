@@ -1,0 +1,6 @@
+[submodule "plugged/vim-powerline"]
+	path = plugged/vim-powerline
+	url = https://github.com/Lokaltog/vim-powerline
+[submodule "plugged/vim-markdown-preview"]
+	path = plugged/vim-markdown-preview
+	url = https://github.com/JamshedVesuna/vim-markdown-preview

@@ -29,7 +29,8 @@ file, add these three lines:
 ```
 
 to the `flags` array variable. Then plugin `YouCompleteMe` will not 
-show error for the `bits/stdc++.h` header file.
+show error for the `bits/stdc++.h` header file. *However*, on Linux
+systems, you don't have to. ;-)
 
 ### ScreenShot
 ![Gvim on openSUSE](./gvim.png)

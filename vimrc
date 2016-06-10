@@ -92,6 +92,8 @@ nnoremap <leader><c-u> viwUe
 nnoremap <leader><c-a>l viw~e
 nnoremap <leader>n :bn<cr>
 nnoremap <leader>p :bp<cr>
+nnoremap <c-a> :Tlist<cr>
+"nnoremap <f5> :!ctags -R *<cr>
 
 inoremap <leader><c-d> <esc>dd$a
 inoremap <leader><c-u> <esc>viwUwa
@@ -241,6 +243,18 @@ endif
 let g:C_ExeExtension = '.exe'
 let g:C_ObjExtension = '.exe'
 let g:C_Ctrl_j = 'off'
+
+" # 8 taglist.vim
+let Tlist_File_Fold_Auto_Close=1
+let Tlist_Show_One_File = 1            "只显示当前文件的taglist，默认是显示多个
+let Tlist_Exit_OnlyWindow = 1          "如果taglist是最后一个窗口，则退出vim
+let Tlist_Use_Right_Window = 1         "在右侧窗口中显示taglist
+let Tlist_GainFocus_On_ToggleOpen = 1  "打开taglist时，光标保留在taglist窗口
+if has('mac')
+else
+  let Tlist_Ctags_Cmd = "/usr/bin/ctags-exuberant"
+endif
+"nnoremap <leader>tl : Tlist<CR>        "设置关闭和打开taglist窗口的快捷键
 
 " # 12 YouCompleteMe
 let g:ycm_global_ycm_extra_conf =

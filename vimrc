@@ -240,6 +240,7 @@ if has('mac')
 endif
 let g:C_ExeExtension = '.exe'
 let g:C_ObjExtension = '.exe'
+let g:C_Ctrl_j = 'off'
 
 " # 12 YouCompleteMe
 let g:ycm_global_ycm_extra_conf =

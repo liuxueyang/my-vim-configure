@@ -18,6 +18,18 @@ two plugins properly.
 4. To make that vim-instant-markdown plugin working on your 
 system. refer to that 
 [repository](https://github.com/suan/vim-instant-markdown)
+5. For Mac OS X, in order to use `bits/stdc++.h` header file. Make
+sure you `brew install gcc48`, then in the `~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py`
+file, add these three lines:
+
+```python
+'-I/usr/local/include/c++/4.8.5/x86_64-apple-darwin15.2.0/',
+'-I/usr/local/Cellar/gcc48/4.8.5/include/c++/4.8.5/x86_64-apple-darwin15.2.0/',
+'-I/usr/local/Cellar/gcc/5.3.0/include/c++/5.3.0/x86_64-apple-darwin15.0.0/',
+```
+
+to the `flags` array variable. Then plugin `YouCompleteMe` will not 
+show error for the `bits/stdc++.h` header file.
 
 ### ScreenShot
 ![Gvim on openSUSE](./gvim.png)

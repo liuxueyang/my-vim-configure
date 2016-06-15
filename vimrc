@@ -41,6 +41,7 @@ augroup END
 augroup others
   autocmd!
   autocmd BufRead *.txt setl nu wrap
+  autocmd BufRead *.yaml setl ft=ansible
 augroup END
 
 augroup filetype_html
@@ -51,7 +52,7 @@ augroup END
 " some hotkeys configuration
 let mapleader=","
 
-vnoremap <leader>y "+y
+vnoremap <localleader>y "+y
 vnoremap <leader>" <esc>`<i"<esc>`>a"<esc>
 vnoremap jk <esc>
 
@@ -199,6 +200,18 @@ Plug '~/.vim/plugged/vim-powerline'
 " # 16 vim-instant-markdown
 " manually installed and updated
 Plug '~/.vim/plugged/vim-markdown-preview'
+
+" # 17 vim-ansible-yaml
+Plug 'chase/vim-ansible-yaml'
+
+" # 18 vim-rails
+Plug 'tpope/vim-rails'
+
+" # 19 emmet-vim
+Plug 'mattn/emmet-vim'
+
+" # 20 supertab
+Plug 'ervandew/supertab'
 
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""

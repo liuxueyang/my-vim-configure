@@ -213,6 +213,9 @@ Plug 'mattn/emmet-vim'
 " # 20 supertab
 Plug 'ervandew/supertab'
 
+" # 21 vim-ruby
+Plug 'vim-ruby/vim-ruby'
+
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""
 

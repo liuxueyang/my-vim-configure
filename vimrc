@@ -41,6 +41,7 @@ augroup END
 augroup others
   autocmd!
   autocmd BufRead *.txt setl nu wrap
+  autocmd BufRead *.cnx setl nu wrap
   autocmd BufRead *.yaml setl ft=ansible
 augroup END
 
@@ -59,7 +60,7 @@ vnoremap jk <esc>
 onoremap p i(
 onoremap b /return<cr>
 
-nnoremap <localleader>ay ggVG"+y<c-o><c-o>
+nnoremap <localleader>ay ggVG"+y
 nnoremap <leader>q :q<cr>
 nnoremap <leader>fq :q!<cr>
 nnoremap <leader>xa :xa<cr>
@@ -216,6 +217,9 @@ Plug 'ervandew/supertab'
 " # 21 vim-ruby
 Plug 'vim-ruby/vim-ruby'
 
+" # 22 rainbow
+Plug 'luochen1990/rainbow'
+
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""
 
@@ -242,20 +246,30 @@ let g:gitgutter_sign_modified_removed = emoji#for('collision')
 
 " # 5 seoul256 color theme
 " Unified color scheme (default: dark)
-colo seoul256
+"colo seoul256
 
 " Light color scheme
-" colo seoul256-light
+colo seoul256-light
 
 " Switch
-set background=dark
-" set background=light
+"set background=dark
+set background=light
 
 " # 7 c.vim
-let g:C_CFlags='--std=c++1y -Wall -g'
+
+augroup others
+  autocmd!
+  autocmd BufNewFile,BufRead *.c let g:C_CFlags='-Wall -g -O0 -c'
+  autocmd BufNewFile,BufRead *.cpp let g:C_CFlags='--std=c++1y -Wall -g'
+augroup END
+
 if has('mac')
   let g:C_CplusCompiler='/usr/local/bin/g++-5'
+else
+  let g:C_CplusCompiler='g++'
 endif
+
+let g:C_CCompiler='gcc'
 let g:C_ExeExtension = '.exe'
 let g:C_ObjExtension = '.exe'
 let g:C_Ctrl_j = 'off'
@@ -304,6 +318,31 @@ let g:Powerline_symbols = 'fancy'
 
 " # 16 vim-instant-markdown
 let g:instant_markdown_slow = 1
+
+" # 22 rainbow
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+\   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+\   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+\   'operators': '_,_',
+\   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+\   'separately': {
+\       '*': {},
+\       'tex': {
+\           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+\       },
+\       'lisp': {
+\           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+\       },
+\       'vim': {
+\           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+\       },
+\       'html': {
+\           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+\       },
+\       'css': 0,
+\   }
+\}
 
 """"""""""""""""""""""""""""""""""""""""
 

@@ -9,9 +9,18 @@
 " General configurations
 
 se hls is nowrap mouse=a ts=2 nu rnu cul cuc
-se guifont=Hermit:h17 nuw=5 cindent sw=2 sr
+se nuw=5 cindent sw=2 sr
 se et "vim-indent set" softtabstop=2 autoindent autochdir ruler 
 se ls=2 ch=2 fdm=manual cc=70 nofen
+" set guifont on Mac OS X, Linux and Windows
+if has('mac')
+  se gfn=Monaco:h19
+else
+  se gfn=Hermit\ 13
+endif
+"remove toolbar, menu"
+se go-=T go-=m gcr=a:block-blinkon0
+
 syntax on
 syntax enable
 filetype plugin indent on
@@ -19,22 +28,38 @@ match ErrorMsg /\%>70v.\+/
 
 let localleader="\\"
 
-autocmd FileType javascript nnoremap <buffer>
-      \ <localleader>c I//<esc>
-autocmd FileType python nnoremap <buffer>
-      \ <localleader>c I#<esc>
-autocmd FileType vim nnoremap <buffer>
-      \ <localleader>c I"<esc>
-autocmd BufRead *.txt setl nu wrap
+augroup comment
+  autocmd!
+  autocmd FileType javascript nnoremap <buffer>
+        \ <localleader>c I//<esc>
+  autocmd FileType python nnoremap <buffer>
+        \ <localleader>c I#<esc>
+  autocmd FileType vim nnoremap <buffer>
+        \ <localleader>c I"<esc>
+augroup END
+
+augroup others
+  autocmd!
+  autocmd BufRead *.txt setl nu wrap
+  autocmd BufRead *.yaml setl ft=ansible
+augroup END
+
+augroup filetype_html
+  autocmd!
+  autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
+augroup END
 
 " some hotkeys configuration
 let mapleader=","
 
-vnoremap <leader>y "+y
+vnoremap <localleader>y "+y
 vnoremap <leader>" <esc>`<i"<esc>`>a"<esc>
 vnoremap jk <esc>
 
-nnoremap <leader>ay ggVG"+y<c-o><c-o>
+onoremap p i(
+onoremap b /return<cr>
+
+nnoremap <localleader>ay ggVG"+y<c-o><c-o>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>fq :q!<cr>
 nnoremap <leader>xa :xa<cr>
@@ -43,7 +68,7 @@ nnoremap <leader>e :e
 nnoremap <leader>s :sp<cr>
 nnoremap <leader>v :vs<cr>
 nnoremap <space> ve
-nnoremap <leader>p "+p
+nnoremap <localleader>p "+p
 nnoremap <leader>ev :vs $MYVIMRC<cr>
 nnoremap <leader>pv :sp $MYVIMRC<cr>
 nnoremap <leader>egv :vs $MYGVIMRC<cr>
@@ -67,6 +92,9 @@ nnoremap <leader>- kddpk
 nnoremap <leader><c-u> viwUe
 nnoremap <leader><c-a>l viw~e
 nnoremap <leader>n :bn<cr>
+nnoremap <leader>p :bp<cr>
+nnoremap <c-a> :Tlist<cr>
+"nnoremap <f5> :!ctags -R *<cr>
 
 inoremap <leader><c-d> <esc>dd$a
 inoremap <leader><c-u> <esc>viwUwa
@@ -94,12 +122,12 @@ function! ClosePair(char)
 		return a:char
 endf
 
-set statusline=%F%m%r%h%w\ 😃\ [FORMAT=%{&ff}]\ 😄\
-      \ [TYPE=%Y]\ 😟\
-      \ [ASCII=\%03.3b]\ 😮\ [HEX=\%02.2B]\ 😱\
-      \ [POS=%04l,%04v]\ 😭\
-      \ [%p%%]\ 😂\ [LEN=%L]\ 😎
-""""""""""""""""""""""""""""""""""""""""
+"set statusline=%F%m%r%h%w\ 😃\ [FORMAT=%{&ff}]\ 😄\
+"      \ [TYPE=%Y]\ 😟\
+"      \ [ASCII=\%03.3b]\ 😮\ [HEX=\%02.2B]\ 😱\
+"      \ [POS=%04l,%04v]\ 😭\
+"      \ [%p%%]\ 😂\ [LEN=%L]\ 😎
+"""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""
 " use vim-plug to manage Vim plugins
@@ -165,6 +193,29 @@ Plug 'junegunn/vim-easy-align'
 " # 14 vim-peekaboo
 Plug 'junegunn/vim-peekaboo'
 
+" # 15 vim-powerline
+" manually installed and updated
+Plug '~/.vim/plugged/vim-powerline'
+
+" # 16 vim-instant-markdown
+" manually installed and updated
+Plug '~/.vim/plugged/vim-markdown-preview'
+
+" # 17 vim-ansible-yaml
+Plug 'chase/vim-ansible-yaml'
+
+" # 18 vim-rails
+Plug 'tpope/vim-rails'
+
+" # 19 emmet-vim
+Plug 'mattn/emmet-vim'
+
+" # 20 supertab
+Plug 'ervandew/supertab'
+
+" # 21 vim-ruby
+Plug 'vim-ruby/vim-ruby'
+
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""
 
@@ -207,6 +258,19 @@ if has('mac')
 endif
 let g:C_ExeExtension = '.exe'
 let g:C_ObjExtension = '.exe'
+let g:C_Ctrl_j = 'off'
+
+" # 8 taglist.vim
+let Tlist_File_Fold_Auto_Close=1
+let Tlist_Show_One_File = 1            "只显示当前文件的taglist，默认是显示多个
+let Tlist_Exit_OnlyWindow = 1          "如果taglist是最后一个窗口，则退出vim
+let Tlist_Use_Right_Window = 1         "在右侧窗口中显示taglist
+let Tlist_GainFocus_On_ToggleOpen = 1  "打开taglist时，光标保留在taglist窗口
+if has('mac')
+else
+  let Tlist_Ctags_Cmd = "/usr/bin/ctags-exuberant"
+endif
+"nnoremap <leader>tl : Tlist<CR>        "设置关闭和打开taglist窗口的快捷键
 
 " # 12 YouCompleteMe
 let g:ycm_global_ycm_extra_conf =
@@ -231,6 +295,15 @@ let g:peekaboo_delay = 750
 
 " Compact display; do not display the names of the register groups
 let g:peekaboo_compact = 1
+
+" # 15 vim-powerline
+let g:Powerline_symbols = 'fancy'
+" If `PlugInstall` failed, just run the following command in 
+" `~/.vim/plugged/` directory:
+" git submodule add https://github.com/Lokaltog/vim-powerline
+
+" # 16 vim-instant-markdown
+let g:instant_markdown_slow = 1
 
 """"""""""""""""""""""""""""""""""""""""
 

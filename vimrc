@@ -11,7 +11,7 @@
 se hls is nowrap mouse=a ts=2 nu rnu cul cuc
 se guifont=Hermit:h17 nuw=5 cindent sw=2 sr
 se et "vim-indent set" softtabstop=2 autoindent autochdir ruler 
-se ls=2 ch=2 fdm=syntax cc=70 nofen
+se ls=2 ch=2 fdm=manual cc=70 nofen
 syntax on
 syntax enable
 filetype plugin indent on
@@ -202,7 +202,9 @@ set background=dark
 
 " # 7 c.vim
 let g:C_CFlags='--std=c++1y -Wall -g'
-let g:C_CplusCompiler='/usr/local/bin/g++-5'
+if has('mac')
+  let g:C_CplusCompiler='/usr/local/bin/g++-5'
+endif
 let g:C_ExeExtension = '.exe'
 let g:C_ObjExtension = '.exe'
 

@@ -2,7 +2,7 @@
 if has('mac')
   se gfn=Monaco:h19
 else
-  se gfn=Hermit\ 13
+  se gfn=Hermit\ 11
 endif
 
 "remove toolbar, menu"

@@ -1,6 +1,21 @@
 [submodule "plugged/vim-powerline"]
 	path = plugged/vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline
+  ignore = dirty
 [submodule "plugged/vim-instant-markdown"]
 	path = plugged/vim-instant-markdown
 	url = https://github.com/suan/vim-instant-markdown
+  ignore = dirty
+[submodule "plugged/taglist.vim"]
+	path = plugged/taglist.vim
+	url = https://github.com/vim-scripts/taglist.vim.git
+	ignore = dirty
+[submodule "plugged/YouCompleteMe"]
+	path = plugged/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
+	ignore = dirty
+[submodule "plugged/c.vim"]
+	path = plugged/c.vim
+	url = https://github.com/vim-scripts/c.vim.git
+	ignore = dirty
+

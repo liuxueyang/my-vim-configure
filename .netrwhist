@@ -1,7 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/Users/liu/vim-backup'
 let g:netrw_dirhist_2='/Users/liu/.vim/plugged/c.vim/plugin'
 let g:netrw_dirhist_3='/Users/liu/.vim/plugged/c.vim'
 let g:netrw_dirhist_4='/Users/liu/.vim'
 let g:netrw_dirhist_5='/tmp'
+let g:netrw_dirhist_6='/Users/liu/liuxueyang_blog/themes/apollo'

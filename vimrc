@@ -220,6 +220,19 @@ Plug 'vim-ruby/vim-ruby'
 " # 22 rainbow
 Plug 'luochen1990/rainbow'
 
+" # 23 tabular
+Plug 'godlygeek/tabular'
+
+" # 24 vim-bookmarks
+"Plug 'MattesGroeger/vim-bookmarks'
+
+" # 25 vim-airline
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+
+" # 26 lh-cpp
+"Plug 'luchermitte/lh-cpp'
+
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""
 
@@ -246,33 +259,31 @@ let g:gitgutter_sign_modified_removed = emoji#for('collision')
 
 " # 5 seoul256 color theme
 " Unified color scheme (default: dark)
-"colo seoul256
+colo seoul256
 
 " Light color scheme
-colo seoul256-light
+" colo seoul256-light
 
 " Switch
-"set background=dark
-set background=light
+set background=dark
+"set background=light
 
 " # 7 c.vim
 
 augroup others
   autocmd!
-  autocmd BufNewFile,BufRead *.c let g:C_CFlags='-Wall -g -O0 -c'
-  autocmd BufNewFile,BufRead *.cpp let g:C_CFlags='--std=c++1y -Wall -g'
+  autocmd BufNewFile,BufRead *.c let g:C_CFlags='-Wall -g -O0 -c -DDEBUG'
+  autocmd BufNewFile,BufRead *.cpp let g:C_CFlags='--std=c++1y -Wall -g -DDEBUG '
 augroup END
 
 if has('mac')
-  let g:C_CplusCompiler='/usr/local/bin/g++-5'
+  let g:C_CplusCompiler='/usr/local/bin/g++-6'
 else
   let g:C_CplusCompiler='g++'
 endif
 
-let g:C_CCompiler='gcc'
-let g:C_ExeExtension = '.exe'
-let g:C_ObjExtension = '.exe'
-let g:C_Ctrl_j = 'off'
+"let g:C_CCompiler='gcc'
+"let g:C_Ctrl_j = 'off'
 
 " # 8 taglist.vim
 let Tlist_File_Fold_Auto_Close=1
@@ -280,6 +291,7 @@ let Tlist_Show_One_File = 1            "只显示当前文件的taglist，默认
 let Tlist_Exit_OnlyWindow = 1          "如果taglist是最后一个窗口，则退出vim
 let Tlist_Use_Right_Window = 1         "在右侧窗口中显示taglist
 let Tlist_GainFocus_On_ToggleOpen = 1  "打开taglist时，光标保留在taglist窗口
+
 if has('mac')
 else
   let Tlist_Ctags_Cmd = "/usr/bin/ctags-exuberant"
@@ -343,6 +355,11 @@ let g:rainbow_conf = {
 \       'css': 0,
 \   }
 \}
+
+" # 25 vim-airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 
 """"""""""""""""""""""""""""""""""""""""
 

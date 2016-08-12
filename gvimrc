@@ -7,3 +7,4 @@ endif
 
 "remove toolbar, menu"
 se go-=T go-=m gcr=a:block-blinkon0
+color molokai

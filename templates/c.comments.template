@@ -67,6 +67,7 @@ const ll MOD=1000000007;
 
 int main ( void )
 {
+  _
 #ifndef  ONLINE_JUDGE
 freopen("input.txt", "r", stdin);
 #endif     /* -----  ONLINE_JUDGE  ----- */

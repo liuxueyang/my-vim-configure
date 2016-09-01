@@ -50,6 +50,10 @@ augroup filetype_html
   autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
 augroup END
 
+augroup filetype_cpp
+  nnoremap <f9> <localleader>rr
+augroup END
+
 " some hotkeys configuration
 let mapleader=","
 
@@ -244,7 +248,7 @@ nnoremap <c-t> :NERDTree<cr>
 
 " # 2 molokai
 let g:molokai_original = 1
-" color molokai
+ color evening
 
 " # 3 vim-emoji
 set completefunc=emoji#complete
@@ -259,7 +263,7 @@ let g:gitgutter_sign_modified_removed = emoji#for('collision')
 
 " # 5 seoul256 color theme
 " Unified color scheme (default: dark)
-colo seoul256
+" colo seoul256
 
 " Light color scheme
 " colo seoul256-light

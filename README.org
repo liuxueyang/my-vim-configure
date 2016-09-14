@@ -7,7 +7,7 @@ for YouCompleteme plugin:
 [[https://github.com/Valloric/YouCompleteMe]]
 #+BEGIN_SRC bash
 git submodule update --init --recursive
-./install.py
+./install.py --clang-completer
 #+END_SRC
 
 ** Install

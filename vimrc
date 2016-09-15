@@ -154,7 +154,7 @@ Plug 'https://github.com/tomasr/molokai'
 Plug 'junegunn/vim-emoji'
 
 " # 4 vim-gitgutter
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
 
 " # 5 seoul256 color theme
 Plug 'junegunn/seoul256.vim'
@@ -266,10 +266,10 @@ nnoremap <leader>mo :%s/:\([^:]\+\):/\=emoji#for
       \(submatch(1), submatch(0))/g<cr>
 
 " # 4 vim-gitgutter
-let g:gitgutter_sign_added = emoji#for('small_blue_diamond')
-let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
-let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
-let g:gitgutter_sign_modified_removed = emoji#for('collision')
+" let g:gitgutter_sign_added = emoji#for('small_blue_diamond')
+" let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
+" let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
+" let g:gitgutter_sign_modified_removed = emoji#for('collision')
 
 " # 5 seoul256 color theme
 " Unified color scheme (default: dark)

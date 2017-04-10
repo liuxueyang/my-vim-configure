@@ -1,23 +1,24 @@
 ** Update on [2017-04-10 Mon 18:28:39]
+
 - disable neocomplete
 
 ** Update on [2016-09-15 Thu 07:33]
+
 - remove YouCompleteMe plugin.
 - Add neocomplete plugin.
 
 ** Update on [2016-09-14 Wed 14:14]
 
-#+BEGIN_SRC bash
+```
 git submodule foreach --recursive git pull origin master
-#+END_SRC
+```
 
-for YouCompleteme plugin:
-[[https://github.com/Valloric/YouCompleteMe]]
+[YouCompleteme plugin](https://github.com/Valloric/YouCompleteMe)
 
-#+BEGIN_SRC bash
+```
 git submodule update --init --recursive
 ./install.py --clang-completer
-#+END_SRC
+```
 
 ** Install
 
@@ -31,6 +32,7 @@ dependencies. Or you can disable this plugin at first in the
 vimrc
 
 - Then run the following command:
+
 ```
     cd ~/.vim/plugged/
     git submodule update --init vim-powerline/
@@ -41,8 +43,7 @@ Because maybe the `vim-plug` plugin manager can not install these
 two plugins properly.
 
 - To make that vim-instant-markdown plugin working on your 
-system. refer to that 
-[repository](https://github.com/suan/vim-instant-markdown)
+system. refer to [this] (https://github.com/suan/vim-instant-markdown)
 
 - For Mac OS X, in order to use `bits/stdc++.h` header file. Make
 sure you `brew install gcc48`, then in the `~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py`
@@ -64,3 +65,4 @@ systems, you don't have to. ;-)
 [[./mvim.png]]
 
 Enjoy. ;-)
+

@@ -1,13 +1,13 @@
-** Update on [2017-04-10 Mon 18:28:39]
+## Update on [2017-04-10 Mon 18:28:39]
 
 - disable neocomplete
 
-** Update on [2016-09-15 Thu 07:33]
+## Update on [2016-09-15 Thu 07:33]
 
 - remove YouCompleteMe plugin.
 - Add neocomplete plugin.
 
-** Update on [2016-09-14 Wed 14:14]
+## Update on [2016-09-14 Wed 14:14]
 
 ```
 git submodule foreach --recursive git pull origin master
@@ -20,7 +20,7 @@ git submodule update --init --recursive
 ./install.py --clang-completer
 ```
 
-** Install
+## Install
 
 - Backup your own configuration. Clone this repository into 
 `~/.vim` then start vim.
@@ -60,9 +60,9 @@ show error for the `bits/stdc++.h` header file. *However*, on Linux
 systems, you don't have to. ;-)
 
 ### ScreenShot
-[[./gvim.png]]
+![Gvim](./gvim.png)
 
-[[./mvim.png]]
+![mvim](./mvim.png)
 
 Enjoy. ;-)
 
